@@ -23,6 +23,23 @@ zig build
 ./zig-out/bin/lunar
 ```
 
+### Optimized Builds
+
+You can pass the `-Doptimize` flag to create optimized builds:
+
+- **Max Speed (Fastest execution)**:
+  ```bash
+  zig build -Doptimize=ReleaseFast
+  ```
+- **Speed + Safety checks**:
+  ```bash
+  zig build -Doptimize=ReleaseSafe
+  ```
+- **Small Binary Size**:
+  ```bash
+  zig build -Doptimize=ReleaseSmall
+  ```
+
 ## Running Tests
 
 To run unit tests and the integration test suite (replicating all original `lunar-c` test cases):
