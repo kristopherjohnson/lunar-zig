@@ -17,7 +17,9 @@ pub fn build(b: *std.Build) void {
 
     const run_cmd = b.addRunArtifact(exe);
     run_cmd.step.dependOn(b.getInstallStep());
-    if (@hasField(std.Build, "args")) {
+    if (@hasDecl(std.Build.Step.Run, "addPassthruArgs")) {
+        run_cmd.addPassthruArgs();
+    } else if (@hasField(std.Build, "args")) {
         if (b.args) |args| {
             run_cmd.addArgs(args);
         }
